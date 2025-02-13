@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+  <title>Token Data Dashboard</title>
+  <!-- Refresh the page every 1 second -->
+  <meta http-equiv="refresh" content="1">
+</head>
+<body>
+  <h1>Real-Time Token Data</h1>
+  <table border="1" cellpadding="8">
+    <tr>
+      <th>Token Address</th>
+      <th>Data</th>
+    </tr>
+    {% for address, data in token_data.items() %}
+    <tr>
+      <td>{{ address }}</td>
+      <td>
+        {% if data.error %}
+          Error: {{ data.error }}
+        {% else %}
+          <!-- Customize what you display from token_info -->
+          {{ data }}
+        {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+</body>
+</html>
